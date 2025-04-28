@@ -1,6 +1,5 @@
 package com.example.fitnessapp.ui.workoutlist
 
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,7 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
 import com.example.fitnessapp.data.model.Workout
-import com.example.fitnessapp.ui.videoplayer.VideoPlayerActivity
 
 class WorkoutAdapter(
     private var items: List<Workout>,

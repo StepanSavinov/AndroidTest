@@ -12,10 +12,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.fitnessapp.R
 import com.example.fitnessapp.ui.videoplayer.VideoPlayerActivity
 import android.content.Intent
+import androidx.activity.viewModels
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class WorkoutListActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: WorkoutListViewModel
+    private val viewModel: WorkoutListViewModel by viewModels()
     private lateinit var adapter: WorkoutAdapter
     private lateinit var searchEditText: EditText
     private lateinit var typeFilterSpinner: Spinner
@@ -30,8 +33,6 @@ class WorkoutListActivity : AppCompatActivity() {
         typeFilterSpinner = findViewById(R.id.typeFilterSpinner)
         workoutRecyclerView = findViewById(R.id.workoutRecyclerView)
         loadingProgressBar = findViewById(R.id.loadingProgressBar)
-
-        viewModel = ViewModelProvider(this)[WorkoutListViewModel::class.java]
 
         adapter = WorkoutAdapter(emptyList()) { workout ->
             val intent = Intent(this, VideoPlayerActivity::class.java).apply {

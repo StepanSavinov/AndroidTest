@@ -6,10 +6,14 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.fitnessapp.data.model.Workout
 import com.example.fitnessapp.data.repository.WorkoutRepository
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class WorkoutListViewModel : ViewModel() {
-    private val repo = WorkoutRepository()
+@HiltViewModel
+class WorkoutListViewModel @Inject constructor(
+    private val repo: WorkoutRepository
+) : ViewModel() {
 
     private val _workouts = MutableLiveData<List<Workout>>()
     val workouts: LiveData<List<Workout>> = _workouts

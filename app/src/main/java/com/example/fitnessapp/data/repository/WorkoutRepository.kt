@@ -1,7 +1,10 @@
 package com.example.fitnessapp.data.repository
 
-import com.example.fitnessapp.data.network.RetrofitInstance
+import com.example.fitnessapp.data.network.ApiService
+import javax.inject.Inject
 
-class WorkoutRepository {
-    suspend fun getWorkouts() = RetrofitInstance.api.getWorkouts()
+class WorkoutRepository @Inject constructor(
+    private val apiService: ApiService
+) {
+    suspend fun getWorkouts() = apiService.getWorkouts()
 }
